@@ -50,7 +50,7 @@ python run.py --data_path datasets/creos.csv --pred_len 168
 ```
 
 ### Dataset format
-**Main dataset**
+**Main dataset**  
 The dataset should be a csv file with named columns (on the first line), with the first column named `date`, containing the timestamps.
 Every other column is considered as a separate consumption time series (e.g. a single consumer).
 Example:
@@ -62,7 +62,7 @@ date,consumer1,consumer2,consumer3
 ...
 ```
 
-**External factors (optional)**
+**External factors (optional)**  
 Some other features might be common to all consumers, such as the temperature, holidays, etc.
 These features should be in a separate csv file, with the same format as the main dataset.
 ```csv
@@ -75,6 +75,7 @@ date,temperature,holiday
 **float** and **categorical** features are distinguished by their type (float or int).
 
 **Note 1:** The timestamps should be the same in both files.
+
 **Note 2:** For now, on this model, external factors are not efficient. Important changes to take them and the consumer's profile into account are currently under experiment for a new contribution.
 
 ### Model options
