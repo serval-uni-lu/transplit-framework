@@ -1,0 +1,11 @@
+matplotlib
+mpmath
+numpy
+pandas
+requests
+scikit_learn
+setuptools
+torch
+torchvision
+torch_dct
+tqdm
