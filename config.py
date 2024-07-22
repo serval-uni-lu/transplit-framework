@@ -1,13 +1,13 @@
 import argparse
 import torch
+from exp.exp import ExpBase
 
 
 parser = argparse.ArgumentParser(description='Transplit model for time series forecasting')
 
 # basic config
 parser.add_argument('--training', type=int, default=1, help='status')
-parser.add_argument('--model', type=str, required=True, default='Transplit',
-        help=('Transplit or Dedipeak'))
+parser.add_argument('--model', type=str, default='Transplit', help=('Transplit or Dedipeak'))
 
 # data loader
 parser.add_argument('--data_path', type=str, default='dataset/creos.csv', help='data file')
@@ -97,4 +97,5 @@ def get_config(**kwargs) -> argparse.Namespace:
     config = argparse.Namespace(**args.__dict__)
     for k, v in kwargs.items():
         setattr(config, k, v)
-    return config
+    exp = ExpBase(config, build_model=False)
+    return exp.args

@@ -1,6 +1,6 @@
 from argparse import Namespace
 from data_provider.data_factory import data_provider
-from exp.exp import Exp_Basic
+from exp.exp import ExpBase
 from exp.exp_main import ExpTransplit
 from utils.tools import EarlyStopping, adjust_learning_rate
 from utils.metrics import metric, all_peak_metrics
@@ -21,7 +21,7 @@ import logging
 warnings.filterwarnings('ignore')
 
 
-class ExpDiffusion(Exp_Basic):
+class ExpDiffusion(ExpBase):
     def __init__(self, args):
         super(ExpDiffusion, self).__init__(args)
 

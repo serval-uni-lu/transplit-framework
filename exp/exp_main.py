@@ -1,5 +1,5 @@
 from data_provider.data_factory import data_provider
-from exp.exp import Exp_Basic
+from exp.exp import ExpBase
 from models import transplit
 from utils.tools import EarlyStopping, adjust_learning_rate, visual
 from utils.metrics import metric
@@ -19,7 +19,7 @@ warnings.filterwarnings('ignore')
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(message)s')
 
 
-class ExpTransplit(Exp_Basic):
+class ExpTransplit(ExpBase):
     def __init__(self, args):
         super(ExpTransplit, self).__init__(args)
 

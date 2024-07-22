@@ -3,12 +3,13 @@ import pandas as pd
 from collections import OrderedDict
 import logging
 
-class Exp_Basic(object):
-    def __init__(self, args):
+class ExpBase(object):
+    def __init__(self, args, build_model=True):
         self.args = args
-        self.device = self._acquire_device()
         self._get_additional_features()
-        self.model = self._build_model().to(self.device)
+        if build_model:
+            self.device = self._acquire_device()
+            self.model = self._build_model().to(self.device)
 
     def _build_model(self):
         raise NotImplementedError
